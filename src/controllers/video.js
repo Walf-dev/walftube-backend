@@ -18,10 +18,6 @@ exports.newVideo = asyncHandler(async (req, res, next) => {
   res.status(200).json({ success: true, data: video });
 });
 
-exports.deleteVideo = asyncHandler(async (req, res, next) => {
-  const video = await Video.delete(req.params.id);
-  res.status(200).json({ success: true, data: video });
-})
 
 exports.getVideo = asyncHandler(async (req, res, next) => {
   const video = await Video.findByPk(req.params.id, {
