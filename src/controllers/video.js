@@ -18,7 +18,28 @@ exports.newVideo = asyncHandler(async (req, res, next) => {
   res.status(200).json({ success: true, data: video });
 });
 
-
+exports.deleteVideo = (req, res) => {
+  const id = req.params.id;
+  Video.destroy({
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Video was deleted!"
+        });
+      } else {
+        res.send({
+          message: `Can't delete video with id=${id}. Maybe video was not found!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Couldn't delete video with id=" + id
+      });
+    });
+}
 exports.getVideo = asyncHandler(async (req, res, next) => {
   const video = await Video.findByPk(req.params.id, {
     include: [
