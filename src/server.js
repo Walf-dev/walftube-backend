@@ -10,7 +10,7 @@ const errorHandler = require("./middlewares/errorHandler");
 const app = express();
 
 app.use(express.json());
-app.use(cors({origin:'https://walftube-backend.herokuapp.com', credentials : true}));//remove the object in development
+app.use(cors({origin:'https://walftube.web.app', credentials : true}));//remove the object in development
 
 app.use("/api/v1/auth", auth);
 app.use("/api/v1/admin", admin);
