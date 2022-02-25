@@ -5,7 +5,15 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server",
-    "dev": "nodemon src/server"
+    "dev": "nodemon src/server",
+    "begin": "npm run build && node src/server.js",
+    "start:original": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node src/server.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build"
+  },
+  "engines": {
+    "node": "14.18.1"
   },
   "author": "Fredoly Wagni",
   "license": "MIT",
