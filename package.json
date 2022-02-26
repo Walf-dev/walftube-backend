@@ -5,7 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server",
-    "dev": "nodemon src/server"
+    "dev": "nodemon src/server",
+    "heroku-postbuild": "ng build --prod"
   },
   "engines": {
     "node": "14.18.1"
